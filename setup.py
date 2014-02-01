@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 
-name = 'spoj-rac'
+name = 'spoj'
 version = '0.0.21'
 
 

@@ -18,9 +18,17 @@ class ProblemDesc(Command):
                 help='only give example output')
 
     def doing(self, args):
+
+	args.problem_id=args.problem_id.upper()
+
         __, soup = self.get_soup(_url('problems/'+args.problem_id))
 
+	print _url('problems/'+args.problem_id)
+
         title = '%s <%s>' % (_(soup.findAll('h1')[1].text), args.problem_id)
+
+	print title
+
         pp = soup.findAll('p')
         desc = BeautifulSoup(escape_sub(_(str(pp[1])))).text
         if desc.endswith('Input'):

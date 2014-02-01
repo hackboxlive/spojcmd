@@ -2,19 +2,27 @@ import os
 
 SPOJ_URL = 'http://www.spoj.com/'
 LOGIN_URL = SPOJ_URL
-spoj_dirname = 'ABRAMOV'
-compiler_id = None
+spoj_dirname = None
+compiler_id = 41
 
-ROOM_URL = lambda : SPOJ_URL + spoj_dirname +'/'
+#ROOM_URL = lambda : SPOJ_URL + spoj_dirname +'/'
 
 CONFIG_FILE_NAME = os.path.expanduser('~/.spojrc')
 COOKIE_FILE_NAME = os.path.expanduser('~/.spoj_cookie')
 
-user_name = None
+def ROOM_URL():
+	if(spoj_dirname):
+		return SPOJ_URL + spoj_dirname +'/'
+        return SPOJ_URL
+
+
+user_name = "tvanicraath" 
 #cookie jar
 cj = None
 
-_url = lambda path: ROOM_URL() + path + '/'
+def _url(path):
+	return ROOM_URL() + path + '/'
+#_url = lambda path: ROOM_URL() + path + '/'
 
 def get_user_name():
     global user_name

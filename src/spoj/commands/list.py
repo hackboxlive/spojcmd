@@ -12,13 +12,18 @@ class ProblemList(Command):
                 'list all problems on %s' % settings.ROOM_URL())
 
     def doing(self, args):
+
         arguments = []
         if args.sort:
             arguments.append('sort=%d' % args.sort)
         if args.page:
             arguments.append('start=%d' % args.page)
 
-        url = _url('problems/main') + ','.join(arguments)
+	problem_set = ""
+	if args.problem_set:
+		problem_set=args.problem_set
+
+        url = _url('problems') + problem_set + '/,'.join(arguments)
 
         __, soup = self.get_soup(url)
         headers = []
@@ -61,3 +66,9 @@ class ProblemList(Command):
                     6 - users count who solved it,
                     7 - percentage of valid solutions
                 ''')
+
+	choices = [ "classica", "challenge" , "partial", "tutorial", "riddle" ]
+	parser.add_argument('--problem_set', choices=choices,
+		help=''' The problem set to show. \n
+				Default is classical
+			''')
