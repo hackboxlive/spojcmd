@@ -2,8 +2,8 @@ import os
 from setuptools import setup, find_packages
 
 
-name = 'spoj'
-version = '0.0.20'
+name = 'spoj-rac'
+version = '0.0.21'
 
 
 def read(fname):
@@ -18,7 +18,7 @@ setup(
     description = ("command line tool for spoj.com "),
     license = "BSD",
     keywords = "spoj spoj.com algorithm",
-    url = "http://github.com/nyamba/spoj",
+    url = "http://github.com/tvanicraath/spoj",
     package_dir={'': 'src'},
     packages=find_packages('src'),
     include_package_data=True,
