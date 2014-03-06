@@ -8,7 +8,7 @@ I have taken [spoj](https://github.com/nyamba/spoj) by [Nyambayar Turbat](https:
 
 Config File (optional)
 ---------------
-	Create a file named `.spojcmdrc`  in your home folder, with the following  contents -
+Create a file named `.spojcmdrc`  in your home folder, with the following  contents -
 
 	[user]
 	user_name = YOUR_USERNAME
@@ -19,7 +19,7 @@ Config File (optional)
 	cver = 4.3.2	(version for gcc c compiler - 4.3.2 / 99 )
 	pasver = fpc	(version for pascal compiler - fpc / gpc )
 
-	Note that, all these options are optional except `[user]` section line
+Note that, all these options are optional except `[user]` section line
 
 
 Setup Instructions
