@@ -8,7 +8,7 @@ I have taken [spoj](https://github.com/nyamba/spoj) by [Nyambayar Turbat](https:
 
 Config File (optional)
 ---------------
-	Create a file named .spojcmdrc  in your home folder, with the following  contents -
+	Create a file named `.spojcmdrc`  in your home folder, with the following  contents -
 
 	[user]
 	user_name = YOUR_USERNAME
@@ -19,13 +19,13 @@ Config File (optional)
 	cver = 4.3.2	(version for gcc c compiler - 4.3.2 / 99 )
 	pasver = fpc	(version for pascal compiler - fpc / gpc )
 
-	Note that, all these options are optional except [user] section line
+	Note that, all these options are optional except `[user]` section line
 
 
 Setup Instructions
 --------------
 
-First, get python-pip. Then install spojcmd by it. Resolve unsatisfied dependencies, if any.
+First, get `python-pip`. Then install `spojcmd` by it. Resolve unsatisfied dependencies, if any.
 
     sudo apt-get install python-pip
     sudo pip install spojcmd
@@ -56,7 +56,7 @@ For your own stats:
 Submit problem on SPOJ (The most fun part)
 --------------
 
-`tackle` is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in ~/.spojcmdrc if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
+`tackle` is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in `~/.spojcmdrc` if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
 
 	spojcmd tackle problem_id.cpp
 
@@ -66,7 +66,7 @@ After submitting, wait till a flashing green (well, upto terminal standards) ACC
 List problems
 ---------
 
-Just for the sake of completeness, list argument lists the problems based on some filters. `--sort` option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: 
+Just for the sake of completeness, `list` argument lists the problems based on some filters. `--sort` option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: 
 
 	1 - problem id
 	2 - problem name
