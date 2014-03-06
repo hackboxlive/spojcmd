@@ -2,8 +2,8 @@ import os
 from setuptools import setup, find_packages
 
 
-name = 'spoj'
-version = '0.0.21'
+name = 'spojcmd'
+version = '0.3'
 
 
 def read(fname):
@@ -13,11 +13,11 @@ def read(fname):
 setup(
     name = name,
     version = version,
-    author = "Nyambayar Turbat",
-    author_email = "t.nyambayar@gmail.com",
+    author = "Rachit Nimavat",
+    author_email = "iamrachiit@gmail.com",
     description = ("command line tool for spoj.com "),
     license = "BSD",
-    keywords = "spoj spoj.com algorithm",
+    keywords = "spoj problems command line",
     url = "http://github.com/tvanicraath/spoj",
     package_dir={'': 'src'},
     packages=find_packages('src'),
