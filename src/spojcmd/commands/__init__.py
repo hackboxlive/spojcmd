@@ -124,5 +124,6 @@ class Command(object):
 
     def get_soup(self, url, **kwargs):
         r = self.get(url, **kwargs)
+	print r
         soup = BeautifulSoup(r.text)
         return r, soup

@@ -21,6 +21,8 @@ class ProblemDesc(Command):
 
 	args.problem_id=args.problem_id.upper()
 
+	print _url("problems/"+args.problem_id)
+
         __, soup = self.get_soup(_url('problems/'+args.problem_id))
 
 	print _url('problems/'+args.problem_id)

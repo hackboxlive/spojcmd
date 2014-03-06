@@ -56,7 +56,7 @@ For your own stats:
 Submit problem on SPOJ (The most fun part)
 --------------
 
-tackle is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in ~/.spojcmdrc if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
+`tackle` is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in ~/.spojcmdrc if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
 
 	spojcmd tackle problem_id.cpp
 
@@ -66,7 +66,7 @@ After submitting, wait till a flashing green (well, upto terminal standards) ACC
 List problems
 ---------
 
-Just for the sake of completeness, list argument lists the problems based on some filters. --sort option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: 
+Just for the sake of completeness, list argument lists the problems based on some filters. `--sort` option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: 
 
 	1 - problem id
 	2 - problem name
@@ -74,7 +74,7 @@ Just for the sake of completeness, list argument lists the problems based on som
 	6 - users count who solved it
 	7 - percentage of valid solutions
 
-Use the option like this:
+Use `list` option like this:
 
     spojcmd list --page=2 --sort=1 --problem_set=classical
 
@@ -82,6 +82,6 @@ Use the option like this:
 Get problem statemnt (Beta)
 --------------------
 
-Get problem statement by desc argument.
+Get problem statement by `desc` argument.
 
     spojcmd desc problem_id
