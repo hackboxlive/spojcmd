@@ -1,7 +1,5 @@
-   spojcmd
-==============
-Rachit Nimavat
-==============
+spojcmd  (Rachit Nimavat)
+=========================
 
 
 Config File (optional)
@@ -17,41 +15,36 @@ Config File (optional)
 	cver = 4.3.2	(version for gcc c compiler - 4.3.2 / 99 )
 	pasver = fpc	(version for pascal compiler - fpc / gpc )
 
+	Note that, all these options are optional except [user] section line
 
-Хэрхэн суулгах
+
+Setup Instructions
 --------------
 
-`pip` ашиглан хялбархан суулгаж болно. Хэрвээ таны үйлдлийн систем дээр `pip` суугаагүй
-бол дараах коммандаар суулгаарай.
+First, get python-pip. Then install spojcmd by it. Resolve unsatisfied dependencies, if any.
 
     >sudo apt-get install python-pip
-    >sudo pip install spoj
+    >sudo pip install spojcmd
 
 
-Системд нэвтрэх
+Login to SPOJ
 ---------------
 
-`login` коммандаар системд нэвтрэн орно. Үүний тулд http://spoj.com дээр
-бүртгүүлсэн байх шаардлагатай.
-Жишээ:
-	
-	>spoj login <username>
+Login to SPOJ like this:
+
+	>spojcmd login <username>
 	>password: <password>
 
 
-Шинээр бүртгүүлэх!!!!
------------------
-
-`register` коммандаар шинэ хэрэглэгч бүртгүүлнэ.
-
-
-Хэрэглэгчийн мэдээлэл
+User Stats
 ---------------------
 
-`status <user_name>` коммандаар тухайн хэрэглэгчийн мэдээллийг харна. Хэдэн
-бодлого бүрэн бодсон болон хэдэн бодлого дутуу бодсон талаар мэдээлнэ. Хэрвээ
-`<user_name>` тодорхойлогдоогүй байвал системд нэвтэрсэн хэрэглэгчийн
-мэдээллийг харуулна.
+To get any user's solved/unsolved problems:
+	>spojcmd status <username>
+
+For your own stats:
+	>spojcmd stats
+	
 
 
 Бодлого илгээх
