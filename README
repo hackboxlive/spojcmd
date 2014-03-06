@@ -1,6 +1,10 @@
 spojcmd  (Rachit Nimavat)
 =========================
 
+Credits
+---------------
+I have taken [spoj](https://github.com/nyamba/spoj) by [Nyambayar Turbat](https://github.com/nyamba) as the seed.
+
 
 Config File (optional)
 ---------------

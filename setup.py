@@ -18,7 +18,7 @@ setup(
     description = ("command line tool for spoj.com "),
     license = "BSD",
     keywords = "spoj problems command line algorithmic problems",
-    url = "http://github.com/tvanicraath/spoj",
+    url = "http://github.com/tvanicraath/spojcmd",
     package_dir={'': 'src'},
     packages=find_packages('src'),
     include_package_data=True,
