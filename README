@@ -1,30 +1,21 @@
-spojcmd
-===========
-
-www.spoj.com/ABRAMOV/ (Sphere online judge) -д зориулсан CL хэрэгсэл. Мөн
-[Мөнхбаатар](http://itblog.gmb.mn) анддаа бариж буй цагаан сарын бэлэг :)
-
-Боломжууд:
-- тохиргооны файл
-- системд нэвтрэх
-- шинээр бүртгүүлэх
-- хэрэглэгчийн мэдээлэл
-- бодлого илгээх
-- бодлогууд
-- бодлогын дэлгэрэнгүй
-- шилдэг бодолтууд
-- миний бодолтууд
+   spojcmd
+==============
+Rachit Nimavat
+==============
 
 
-Тохиргооны файл
+Config File (optional)
 ---------------
+	Create a file named .spojcmdrc  in your home folder, with the following  contents -
 
-`~/.spojrc` дотор дараах өгөгдлүүдийг урьдчилан тохируулах боломжтой.
-
-    [user]
-    user_name=your_user_name
-    compiler_id=4
-    spoj_dirname=ABRAMOV
+	[user]
+	user_name = YOUR_USERNAME
+	password = YOUR_PASSWORD
+	wait_time = 4	(time interval in seconds for querying status of your submission)
+	pyver = 2.7	(version for python compiler - 2.7 / 3.2.3 / nbc )
+	cppver = 4.3.2	(version for gcc cpp compiler - 4.3.2 / 4.0.0.0-8 )
+	cver = 4.3.2	(version for gcc c compiler - 4.3.2 / 99 )
+	pasver = fpc	(version for pascal compiler - fpc / gpc )
 
 
 Хэрхэн суулгах

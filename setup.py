@@ -17,7 +17,7 @@ setup(
     author_email = "iamrachiit@gmail.com",
     description = ("command line tool for spoj.com "),
     license = "BSD",
-    keywords = "spoj problems command line",
+    keywords = "spoj problems command line algorithmic problems",
     url = "http://github.com/tvanicraath/spoj",
     package_dir={'': 'src'},
     packages=find_packages('src'),
@@ -28,8 +28,7 @@ setup(
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
         "Topic :: Education",
-        "License :: OSI Approved :: BSD License",
-        "Intended Audience :: Customer Service",
+        "Intended Audience :: Customer Service, SPOJ users",
     ],
     install_requires=[
         'setuptools',
@@ -40,7 +39,7 @@ setup(
         ],
     entry_points={
         'console_scripts': [
-            'spoj = spoj.main:runner',
+            'spojcmd = spojcmd.main:runner',
             ]
         },
 )
