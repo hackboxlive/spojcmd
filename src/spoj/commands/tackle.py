@@ -12,7 +12,7 @@ LANG_COMP = {
         'php':   {29: 'php 5.2.6'},
         'java':  {10: 'java SE 6'},
         'jar':   {24: 'java SE 6'},
-        'pas':   {22: 'fpc 2.2.4', 2: 'gpc 20070904'},
+        'pas':   {22: 'fpc 2.2.4'},
         'pl':    {3: 'perl 5.12.1'},
         'scala': {39: 'scala 2.8.0'},
         'sed':   {46: 'sed 4.2'},
@@ -22,17 +22,15 @@ LANG_COMP = {
         'asm':   {13: 'nasm 2.03.01'},
         'go':    {114: 'gc 2010-07-14'},
         'sh':    {104: 'bash 4.0.37'},
+	'txt':	 {62: 'Text (plain text)'},
         }
 
-#        'cpp':   {41: 'g++ 4.3.2', 1: 'g++ 4.0.0-8'},
-#        'py':    {4: 'python 2.7', 116: 'python 3.2.3'},
-
-
 class TackleProblem(Command):
+
     def __init__(self):
         super(TackleProblem, self).__init__('tackle',
                 'upload a solution to %s' % settings.ROOM_URL())
-        self.wait_time = 4
+        self.wait_time = int(settings.wait_time)
 
     def add_arguments(self, parser):
         parser.add_argument('file_name', help='file_name must be formatted \
@@ -50,7 +48,7 @@ class TackleProblem(Command):
         print 'Your solution will be compiled via %s(%d)' % (cmp_name,cmp_id)
 
         self.auth_if()
-        problem_id = args.file_name.split('.')[0]
+        problem_id = args.file_name.split('.')[0].upper()
         url = _url('submit/complete')
         files = {'subm_file': (args.file_name, open(args.file_name, 'r'))}
         r = self.post(url,
@@ -81,30 +79,31 @@ class TackleProblem(Command):
 
 
     def get_compiler(self, file_name):
-        ext = file_name.split('.')[-1]
+        ext = file_name.split('.')[-1].lower()
+
         compilers = LANG_COMP.get(ext, {})
 
-        compiler_id = -1
-        compiler_name = ''
+        (cid,cname)=compilers.items()[0]
 
-        if len(compilers) == 0:
-            raise ValueError('oops, don\'t have a compiler for your file')
-        elif len(compilers) > 1:
-            print 'there are many compilers,',
-            while True:
-                print 'please choose one of followings:'
-                for k, v in compilers.items():
-                    print '%3d: %s' % (k, v)
-                try:
-                    compiler_id = input()
-                    compiler_name = compilers[compiler_id]
-                    break
-                except:
-                    print 'invalid!, only choose one id of provided'
-        else:
-            compiler_id, compiler_name = compilers.items()[0]
+        if(cid==4):             #python
+                if(settings.pyver=="3.2.3"):
+                        return (116, "Python 3 (python 3.2.3)")
+		if(settings.pyver=="nbc"):
+			return (126, "Python 3 nbc (python 3.2.3 nbc)")
 
-        return compiler_id, compiler_name
+	if(cid==11):		#c
+		if(settings.cver=="99"):
+			return (34, "C99 strict (gcc 4.3.2)")
+	
+	if(cid==41):		#cpp
+		if(settings.cppver=="4.0.0.0-8"):
+			return (1, "C++ (g++ 4.0.0-8)")
+	
+	if(cid==22):		#pas
+		if(settings.pasver=="gpc"):
+			return (2, "Pascal (gpc 20070904)");
+	return (cid,cname)
+
 
     def get_result(self, problem_id):
         '''

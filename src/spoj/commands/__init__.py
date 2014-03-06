@@ -45,8 +45,16 @@ class Command(object):
         try:
             assert self.requests.cookies['autologin_hash'], 'hash'
             assert self.requests.cookies['autologin_login'], 'login'
+
             __, soup = self.get_soup(_url('myaccount'))
             assert soup.find('h3'), 'h3'
+	    f=open(settings.COOKIE_FILE_NAME)
+            lines=f.readlines()
+	    for line in lines:
+		if(not "autologin_login" in line):
+			continue
+		assert(settings.user_name in line)
+
             return True
         except:
             return False
@@ -71,16 +79,21 @@ class Command(object):
 
         self.requests.cookies.clear()
 
+	first_time=1
         while loop:
             name = settings.user_name
             if name is None:
                 if settings.user_name:
                     name = settings.user_name
-                    print 'loaded user name from config, [%s]' % name
+                    print 'Loaded user name from config, [%s]' % name
                 else:
                     name = raw_input('user name:')
 
-            passw = getpass.getpass()
+	    if(settings.password==None or first_time==0):
+	            passw = getpass.getpass()
+	    else:
+		    first_time=0
+		    passw=settings.password
 
             payload = dict(login_user=name, password=passw,
                     autologin=1, submit='Log In')
@@ -92,7 +105,12 @@ class Command(object):
                 self.save_cookies()
                 loop = False
             else:
-                print 'incorrect user name or password! Try again.'
+		if(first_time==0):
+			print 'Password is wrong/outdated in ~/.spojrc. Please update it.'
+		else:
+			print 'Consider writing your password in ~/.spojrc file as `password = *****`'
+		print 'Try Again.'
+
 
     def get(self, url, **kwargs):
         return self.requests.get(url, **kwargs)

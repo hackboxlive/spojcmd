@@ -9,10 +9,15 @@ from .commands import Command
 def parseConfig():
     cfg = ConfigParser.ConfigParser()
     cfg.read([settings.CONFIG_FILE_NAME])
-    if cfg.has_section('user'):
-        for (k, v) in cfg.items('user'):
-            logging.info('loaded config: %s=%s' % (k, v))
-            setattr(settings, k, v)
+
+
+    sections=["user","password","wait_time","pyver","cver","cppver","pasver"]
+
+    for section in sections:
+	if cfg.has_section(section):
+		for (k,v) in cfg.items(section):
+			logging.info('loaded config: %s=%s' % (k, v))
+			setattr(settings, k, v)
 
     try:
         cj = cookielib.MozillaCookieJar(settings.COOKIE_FILE_NAME)
@@ -28,6 +33,7 @@ def _getOptionsParser():
     command_classes = find_cmd_classes(commands)
 
     _commands = [CC() for CC in command_classes]
+
     parser = argparse.ArgumentParser(prog='spoj', description='command line \
     tool for spoj.com')
     sub_parsers = parser.add_subparsers()

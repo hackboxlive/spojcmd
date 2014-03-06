@@ -3,6 +3,9 @@ import os
 SPOJ_URL = 'http://www.spoj.com/'
 LOGIN_URL = SPOJ_URL
 spoj_dirname = None
+user_name = None
+password = None
+wait_time = 4
 compiler_id = 41
 
 #ROOM_URL = lambda : SPOJ_URL + spoj_dirname +'/'
@@ -16,7 +19,6 @@ def ROOM_URL():
         return SPOJ_URL
 
 
-user_name = "tvanicraath" 
 #cookie jar
 cj = None
 
@@ -29,5 +31,5 @@ def get_user_name():
     if user_name:
         return user_name
 
-    user_name = raw_input('user name:')
+    user_name = raw_input('user name : ')
     return user_name
