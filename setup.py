@@ -28,7 +28,7 @@ setup(
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
         "Topic :: Education",
-        "Intended Audience :: Customer Service, SPOJ users",
+        "Intended Audience :: Customer Service",
     ],
     install_requires=[
         'setuptools',

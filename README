@@ -1,7 +1,5 @@
-   spojcmd
-==============
-Rachit Nimavat
-==============
+spojcmd  (Rachit Nimavat)
+=========================
 
 
 Config File (optional)
@@ -16,6 +14,8 @@ Config File (optional)
 	cppver = 4.3.2	(version for gcc cpp compiler - 4.3.2 / 4.0.0.0-8 )
 	cver = 4.3.2	(version for gcc c compiler - 4.3.2 / 99 )
 	pasver = fpc	(version for pascal compiler - fpc / gpc )
+
+	Note that, all these options are optional except [user] section line
 
 
 Хэрхэн суулгах

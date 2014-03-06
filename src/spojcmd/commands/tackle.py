@@ -33,9 +33,20 @@ class TackleProblem(Command):
         self.wait_time = int(settings.wait_time)
 
     def add_arguments(self, parser):
-        parser.add_argument('file_name', help='file_name must be formatted \
+        parser.add_argument('file_name', nargs='?', help='file_name must be formatted \
                 like this: <problem_id>.<lang_extention>\n for example: \
                 IOPC14J.py')
+
+    def get_latest_code(self):
+	files = filter(os.path.isfile, os.listdir("./"))
+	files.sort(key=lambda x: os.path.getmtime(x))
+	files.reverse()
+	exts={"py","rb","php","java","jar","pas","scala","sed","c","cpp","cs","asm","go","sh","txt"}
+	for fname in files:
+		ext=fname.split(".")[1].lower()
+		if(ext in exts):
+			return fname
+
 
     def doing(self, args):
 
@@ -44,6 +55,10 @@ class TackleProblem(Command):
         #    cmp_id = int(settings.compiler_id)
         #    print 'compiler id loaded from settings: %d' % cmp_id
         #else:
+
+	if(args.file_name==None):
+		args.file_name=self.get_latest_code()
+
         cmp_id, cmp_name = self.get_compiler(args.file_name)
         print 'Your solution will be compiled via %s(%d)' % (cmp_name,cmp_id)
 
@@ -63,7 +78,7 @@ class TackleProblem(Command):
             print 'waiting result for %d seconds!' % self.wait_time
             time.sleep(self.wait_time)
 	    os.system('clear')
-            print '\n \t\t\t**result** \n'
+            print '\n \t\t\t**Result** \n'
             result = self.get_result(problem_id)
             print '   date: %s\n   name: %s\n   status: %s\n   time: %s\n   memory: %s\n\n' %\
                     result
