@@ -6,6 +6,9 @@ spoj_dirname = None
 user_name = None
 password = None
 wait_time = 4
+pyver = "2.7"
+cver = "4.3.2"
+cppver = "4.3.2"
 compiler_id = 41
 
 #ROOM_URL = lambda : SPOJ_URL + spoj_dirname +'/'
