@@ -67,7 +67,7 @@ class ProblemList(Command):
                     7 - percentage of valid solutions
                 ''')
 
-	choices = [ "classica", "challenge" , "partial", "tutorial", "riddle" ]
+	choices = [ "classical", "challenge" , "partial", "tutorial", "riddle" ]
 	parser.add_argument('--problem_set', choices=choices,
 		help=''' The problem set to show. \n
 				Default is classical

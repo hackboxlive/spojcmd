@@ -40,39 +40,42 @@ User Stats
 ---------------------
 
 To get any user's solved/unsolved problems:
+
 	>spojcmd status <username>
 
 For your own stats:
-	>spojcmd stats
+
+	>spojcmd status
 	
 
 
-Бодлого илгээх
+Submit problem on SPOJ (The most fun part)
 --------------
 
-`tackle` коммандаар бодлогоо илгээнэ, үүний тулд кодын файлын нэрээ
-аргументэд нь өгнө. Кодын файлын нэр бодлогын дугаарыг, өргөтгөл нь 
-тухайн бодлогыг ямар хэл дээр шийдсэнийг илэрхийлнэ. 
-Жишээ нь:
+tackle is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in ~/.spojcmdrc if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
 
-	>spoj tackle problem_id.c
+	>spojcmd tackle problem_id.cpp
+
+After submitting, wait till a flashing green (well, upto terminal standards) ACCEPTED is displayed.
 
 
-Бодлогууд
+List problems
 ---------
 
-`list' коммандаар нийт бодологуудын жагсаалтыг харах боломжтой. Мөн баганы
-дугаараар хүснэгтийн эрэмбэлэх боломжтой.
-Жишээ нь:
+Just for the sake of completeness, list argument lists the problems based on some filters. --sort option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: 
 
-    >spoj list --page=2 --sort=1
+	1 - problem id
+	2 - problem name
+	5 - solution id
+	6 - users count who solved it
+	7 - percentage of valid solutions
+
+    >spoj list --page=2 --sort=1 --problem_set=classical
 
 
-Бодлогын дэлгэрэнгүй
+Get problem statemnt (Beta)
 --------------------
-`desc` коммандаар бодлогын дэлгэрэнгүйг харна. Үүнд бодлогын өгүүлбэр болон,
-жишээ оролт, гаралтын утгууд агуулагдана. Мөн зөвхөн жишээ оролт эсвэл
-гаралтын утгыг авах боломжтой.
 
-    >spoj desc problem_id # дэлгэрэнгүй мэдээлэл
-    >spoj desc --input problem_id # зөвхөн жишээ оролтын утга
+Get problem statement by desc argument.
+
+    >spoj desc problem_id
