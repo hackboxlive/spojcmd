@@ -23,8 +23,8 @@ Setup Instructions
 
 First, get python-pip. Then install spojcmd by it. Resolve unsatisfied dependencies, if any.
 
-    >sudo apt-get install python-pip
-    >sudo pip install spojcmd
+    sudo apt-get install python-pip
+    sudo pip install spojcmd
 
 
 Login to SPOJ
@@ -32,20 +32,20 @@ Login to SPOJ
 
 Login to SPOJ like this:
 
-	>spojcmd login <username>
-	>password: <password>
+	spojcmd login <username>
+	password: <password>
 
 
-User Stats
+User Status
 ---------------------
 
 To get any user's solved/unsolved problems:
 
-	>spojcmd status <username>
+	spojcmd status <username>
 
 For your own stats:
 
-	>spojcmd status
+	spojcmd status
 	
 
 
@@ -54,7 +54,7 @@ Submit problem on SPOJ (The most fun part)
 
 tackle is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in ~/.spojcmdrc if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))
 
-	>spojcmd tackle problem_id.cpp
+	spojcmd tackle problem_id.cpp
 
 After submitting, wait till a flashing green (well, upto terminal standards) ACCEPTED is displayed.
 
@@ -70,7 +70,9 @@ Just for the sake of completeness, list argument lists the problems based on som
 	6 - users count who solved it
 	7 - percentage of valid solutions
 
-    >spoj list --page=2 --sort=1 --problem_set=classical
+Use the option like this:
+
+    spojcmd list --page=2 --sort=1 --problem_set=classical
 
 
 Get problem statemnt (Beta)
@@ -78,4 +80,4 @@ Get problem statemnt (Beta)
 
 Get problem statement by desc argument.
 
-    >spoj desc problem_id
+    spojcmd desc problem_id
