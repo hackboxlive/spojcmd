@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Spojcmd by tvanicraath</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Spojcmd</h1>
+        <h2>command line tool for spoj.com</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/tvanicraath/spojcmd/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/tvanicraath/spojcmd/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/tvanicraath/spojcmd" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="spojcmd--rachit-nimavat" class="anchor" href="#spojcmd--rachit-nimavat"><span class="octicon octicon-link"></span></a>spojcmd  (Rachit Nimavat)</h1>
+
+<h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>I have taken <a href="https://github.com/nyamba/spoj">spoj</a> by <a href="https://github.com/nyamba">Nyambayar Turbat</a> as the seed.</p>
+
+<h2>
+<a name="config-file-optional" class="anchor" href="#config-file-optional"><span class="octicon octicon-link"></span></a>Config File (optional)</h2>
+
+<p>Create a file named <code>.spojcmdrc</code>  in your home folder, with the following  contents -</p>
+
+<pre><code>[user]
+user_name = YOUR_USERNAME
+password = YOUR_PASSWORD
+wait_time = 4   (time interval in seconds for querying status of your submission)
+pyver = 2.7 (version for python compiler - 2.7 / 3.2.3 / nbc )
+cppver = 4.3.2  (version for gcc cpp compiler - 4.3.2 / 4.0.0.0-8 )
+cver = 4.3.2    (version for gcc c compiler - 4.3.2 / 99 )
+pasver = fpc    (version for pascal compiler - fpc / gpc )
+</code></pre>
+
+<p>Note that, all these options are optional except <code>[user]</code> section line</p>
+
+<h2>
+<a name="setup-instructions" class="anchor" href="#setup-instructions"><span class="octicon octicon-link"></span></a>Setup Instructions</h2>
+
+<p>First, get <code>python-pip</code>. Then install <code>spojcmd</code> by it. Resolve unsatisfied dependencies, if any.</p>
+
+<pre><code>sudo apt-get install python-pip
+sudo pip install spojcmd
+</code></pre>
+
+<h2>
+<a name="login-to-spoj" class="anchor" href="#login-to-spoj"><span class="octicon octicon-link"></span></a>Login to SPOJ</h2>
+
+<p>Login to SPOJ like this:</p>
+
+<pre><code>spojcmd login &lt;username&gt;
+password: &lt;password&gt;
+</code></pre>
+
+<h2>
+<a name="user-status" class="anchor" href="#user-status"><span class="octicon octicon-link"></span></a>User Status</h2>
+
+<p>To get any user's solved/unsolved problems:</p>
+
+<pre><code>spojcmd status &lt;username&gt;
+</code></pre>
+
+<p>For your own stats:</p>
+
+<pre><code>spojcmd status
+</code></pre>
+
+<h2>
+<a name="submit-problem-on-spoj-the-most-fun-part" class="anchor" href="#submit-problem-on-spoj-the-most-fun-part"><span class="octicon octicon-link"></span></a>Submit problem on SPOJ (The most fun part)</h2>
+
+<p><code>tackle</code> is your command. The problem name should match its id on SPOJ (case insensitive). The compiler will be guessed by looking at the extention, but you should add the entry in <code>~/.spojcmdrc</code> if you are using non-default compilers (like python 3.2.3). If you leave the problem name blank, the most recent code will be submitted, (it would ignore input/output/exec files (hopefully :P ))</p>
+
+<pre><code>spojcmd tackle problem_id.cpp
+</code></pre>
+
+<p>After submitting, wait till a flashing green (well, upto terminal standards) ACCEPTED is displayed.</p>
+
+<h2>
+<a name="list-problems" class="anchor" href="#list-problems"><span class="octicon octicon-link"></span></a>List problems</h2>
+
+<p>Just for the sake of completeness, <code>list</code> argument lists the problems based on some filters. <code>--sort</code> option denoted on which column the list should be sorted. If it is positive, ascending order else descending. Available options: </p>
+
+<pre><code>1 - problem id
+2 - problem name
+5 - solution id
+6 - users count who solved it
+7 - percentage of valid solutions
+</code></pre>
+
+<p>Use <code>list</code> option like this:</p>
+
+<pre><code>spojcmd list --page=2 --sort=1 --problem_set=classical
+</code></pre>
+
+<h2>
+<a name="get-problem-statemnt-beta" class="anchor" href="#get-problem-statemnt-beta"><span class="octicon octicon-link"></span></a>Get problem statemnt (Beta)</h2>
+
+<p>Get problem statement by <code>desc</code> argument.</p>
+
+<pre><code>spojcmd desc problem_id
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
